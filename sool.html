@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>술 따라, 맛 따라</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .fixed-aspect-ratio {
+            position: relative;
+            width: 100%;
+            padding-bottom: 100%; /* 2:3 aspect ratio */
+        }
+        .fixed-aspect-ratio img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .region {
+            cursor: pointer;
+            fill: #dddddd;
+            stroke: #ffffff;
+            stroke-width: 2;
+        }
+        .region.active {
+            fill: #ffcc00;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold text-center mb-4">술 따라, 맛 따라</h1>
+
+        <div class="text-center mb-8">
+            <input id="search-input" type="text" placeholder="전통주 검색하기" class="border p-2 rounded">
+            <button id="search-button" class="bg-gray-500 text-white py-2 px-4 rounded ml-2">검색</button>
+        </div>
+        <div class="text-center mb-8">
+            <div class="inline-flex space-x-4" id="region-tabs">
+                <button class="region-tab py-2 px-4 rounded bg-gray-300" data-region="전체">전체</button>
+                <button class="region-tab py-2 px-4 rounded" data-region="서울">서울</button>
+                <button class="region-tab py-2 px-4 rounded" data-region="경기">경기</button>
+                <button class="region-tab py-2 px-4 rounded" data-region="강원">강원</button>
+                <button class="region-tab py-2 px-4 rounded" data-region="충청">충청</button>
+                <button class="region-tab py-2 px-4 rounded" data-region="경상">경상</button>
+                <button class="region-tab py-2 px-4 rounded" data-region="전라">전라</button>
+                <button class="region-tab py-2 px-4 rounded" data-region="제주">제주</button>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="sool-container">
+            <!-- 술 아이템이 여기에 동적으로 추가됩니다 -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let allData = [];
+            let filteredData = [];
+
+            fetch('sool.json')
+                .then(response => response.json())
+                .then(data => {
+                    allData = data;
+                    filteredData = data;
+                    renderItems(filteredData);
+                })
+                .catch(error => console.error('Error fetching data:', error));
+
+            function renderItems(data) {
+                const container = document.getElementById('sool-container');
+                container.innerHTML = ''; // Clear previous items
+                data.forEach(sool => {
+                    const item = document.createElement('div');
+                    item.className = 'bg-white p-4 rounded-lg shadow-md';
+
+                    const imageContainer = document.createElement('div');
+                    imageContainer.className = 'fixed-aspect-ratio mb-4';
+
+                    const image = document.createElement('img');
+                    image.src = sool.image_url || 'https://placehold.co/400x600';
+                    image.alt = sool.name;
+                    imageContainer.appendChild(image);
+                    item.appendChild(imageContainer);
+
+                    const name = document.createElement('h2');
+                    name.className = 'text-xl font-bold mb-2';
+                    name.textContent = sool.name;
+                    item.appendChild(name);
+
+                    const type = document.createElement('p');
+                    type.className = 'text-gray-700 mb-2';
+                    type.textContent = `${sool.alcohol_content} / ${sool.type_of_wine}`;
+                    item.appendChild(type);
+
+                    const description = document.createElement('p');
+                    description.className = 'text-gray-600';
+                    description.textContent = sool.description.length > 40
+                        ? sool.description.substring(0, 40) + '...'
+                        : sool.description;
+                    item.appendChild(description);
+
+                    container.appendChild(item);
+                });
+            }
+
+            function filterData() {
+                const query = document.getElementById('search-input').value.toLowerCase();
+                const activeRegion = document.querySelector('.region-tab.bg-gray-300').getAttribute('data-region');
+
+                filteredData = allData.filter(sool => {
+                    const matchesSearch = sool.name.toLowerCase().includes(query);
+                    const matchesRegion = activeRegion === '전체' || sool.brewery_name === activeRegion;
+                    return matchesSearch && matchesRegion;
+                });
+
+                renderItems(filteredData);
+            }
+
+            document.getElementById('region-tabs').addEventListener('click', function(event) {
+                if (event.target.classList.contains('region-tab')) {
+                    document.querySelectorAll('.region-tab').forEach(tab => {
+                        tab.classList.remove('bg-gray-300');
+                    });
+                    event.target.classList.add('bg-gray-300');
+
+                    filterData();
+                }
+            });
+
+            document.getElementById('search-button').addEventListener('click', function() {
+                filterData();
+            });
+
+            document.getElementById('search-input').addEventListener('input', function() {
+                filterData();
+            });
+        });
+    </script>
+</body>
+</html>
