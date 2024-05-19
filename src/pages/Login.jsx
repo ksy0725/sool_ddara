@@ -24,7 +24,7 @@ const Login= () => {
             console.log(typedUserInfo);
             setTypingEmail("")
             setTypingPassword("")
-            // nav("/Mypage");
+            nav("/Mypage");
         } catch(err) {
             switch (err.code) {
                 case "auth/user-not-found":

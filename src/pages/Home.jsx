@@ -4,7 +4,6 @@ import '../css/Home.css'
 const Home = ({ allData, filteredData, query, activeRegion, setQuery, setActiveRegion, filterData, renderItems }) => {
     return (
         <div>
-            <h1 className="text-4xl font-bold text-center mb-4">술 따라, 맛 따라</h1>
             <div className="text-center mb-8">
                 <input
                     id="search-input"

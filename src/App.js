@@ -64,6 +64,7 @@ const App = () => {
 
     return (
         <div className="container mx-auto px-4 py-8 bg-gray-100">
+            <h1 className="text-4xl font-bold text-center mb-4">맛 따라, 술 따라</h1>
             <div className="menu">
                 <Link to="/Home">Home</Link> 
                 <Link to="/Login">Login</Link>
