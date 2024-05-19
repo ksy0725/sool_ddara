@@ -1,15 +1,27 @@
 // App.jsx
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, createContext } from 'react';
 import { Link, Routes, Route } from "react-router-dom"
 import Home from './pages/Home';
 import Signin from './pages/Signin';
 import Login from './pages/Login';
+
+export const LoginContext = createContext();
 
 const App = () => {
     const [allData, setAllData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
     const [query, setQuery] = useState('');
     const [activeRegion, setActiveRegion] = useState('전체');
+
+    const onCreateId = (Id) => {
+        const newId = Id;
+        console.log(newId);
+      }
+    
+      const onCreatePassword = (password) => {
+        const newPassword = password;
+        console.log(newPassword);
+      }
 
     useEffect(() => {
         fetch('/sool.json')
@@ -57,6 +69,7 @@ const App = () => {
                 <Link to="/Login">Login</Link>
                 <Link to="/Signin">Signin</Link>
             </div>
+            <LoginContext.Provider value={{ onCreateId, onCreatePassword }}>
             <Routes>
                 <Route path='/Home' element={<Home
                     allData={allData}
@@ -66,11 +79,13 @@ const App = () => {
                     setQuery={setQuery}
                     setActiveRegion={setActiveRegion}
                     filterData={filterData}
-                    renderItems={renderItems} // renderItems 함수를 전달합니다.
-                />}/>                
+                    renderItems={renderItems}
+                />}/>
                 <Route path='/Signin' element={<Signin/>}/>
                 <Route path='/Login' element={<Login/>}/>
             </Routes>
+      </LoginContext.Provider>
+            
         </div>
     );
 };
