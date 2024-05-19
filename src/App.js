@@ -1,9 +1,9 @@
-// App.jsx
 import React, { useEffect, useState, createContext } from 'react';
-import { Link, Routes, Route } from "react-router-dom"
+import { Link, Routes, Route } from "react-router-dom";
 import Home from './pages/Home';
 import Signin from './pages/Signin';
 import Login from './pages/Login';
+import Mypage from './pages/Mypage';
 
 export const LoginContext = createContext();
 
@@ -64,14 +64,15 @@ const App = () => {
 
     return (
         <div className="container mx-auto px-4 py-8 bg-gray-100">
-            <div>
+            <div className="menu">
                 <Link to="/Home">Home</Link> 
                 <Link to="/Login">Login</Link>
                 <Link to="/Signin">Signin</Link>
+                <Link to="/Mypage">Mypage</Link>
             </div>
             <LoginContext.Provider value={{ onCreateId, onCreatePassword }}>
             <Routes>
-                <Route path='/Home' element={<Home
+                <Route path='/' element={<Home
                     allData={allData}
                     filteredData={filteredData}
                     query={query}
@@ -81,6 +82,7 @@ const App = () => {
                     filterData={filterData}
                     renderItems={renderItems}
                 />}/>
+                <Route path='/Mypage' element={<Mypage/>}/>
                 <Route path='/Signin' element={<Signin/>}/>
                 <Route path='/Login' element={<Login/>}/>
             </Routes>

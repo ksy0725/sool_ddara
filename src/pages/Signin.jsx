@@ -2,7 +2,7 @@ import { useState } from "react";
 import { firebaseAuth, createUserWithEmailAndPassword } from "../firebase";
 import { useNavigate , Link } from "react-router-dom";
 
-import "./Signin.css";
+import "../css/Signin.css";
 
 const Signin = () => {
     const [errorMsg, setErrorMsg] = useState("");

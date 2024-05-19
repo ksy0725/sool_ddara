@@ -1,6 +1,5 @@
-// Home.jsx
 import React from 'react';
-import './Home.css'
+import '../css/Home.css'
 
 const Home = ({ allData, filteredData, query, activeRegion, setQuery, setActiveRegion, filterData, renderItems }) => {
     return (
