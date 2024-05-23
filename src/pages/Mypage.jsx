@@ -1,6 +1,6 @@
-import '../css/Mypage.css'
+import '../css/MyPage.css'
 
-const Mypage=() => {
+const MyPage=() => {
     return(
         <div>
             My page
@@ -9,4 +9,4 @@ const Mypage=() => {
     );
 }
 
-export default Mypage;
+export default MyPage;
