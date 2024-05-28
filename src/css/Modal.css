@@ -1,0 +1,31 @@
+.Modal {
+  height: 500px;
+}
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+  z-index: 1001;
+  text-align: center;
+  margin: auto;
+  margin-top: 65px;
+}
+
+.modal-content p {
+  opacity: 1;
+}
+
+.modal-content .x img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 15px;
+  margin-right: 15px;
+  border: none;
+  cursor: pointer;
+}
