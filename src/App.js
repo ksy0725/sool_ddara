@@ -111,6 +111,7 @@ const App = () => {
             <p className="text-gray-600">
               {selectedSool.description.length > 40 ? `${selectedSool.description}` : selectedSool.description}
             </p>
+            <p className="text-gray-600"> 추천 음식 : {`${selectedSool.food_pairing}`}</p>
           </div>
         )}
       </Modal>
