@@ -18,7 +18,6 @@ const DetailPage = ({ allData }) => {
             <p>Alcohol Content: {selectedSool.alcohol_content}</p>
             <p>Volume: {selectedSool.volume}</p>
             <p>Description: {selectedSool.description}</p>
-            <p>Food pairing: {selectedSool.food_pairing}</p>
             {/* 나머지 정보 표시 */}
         </div>
     );
