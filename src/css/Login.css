@@ -1,7 +1,65 @@
-.Login {
+/* Login.css */
+
+.bd_login {
+    margin: 0;
+    padding: 0;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.Login {
+    width: 400px; /* 로그인 창의 너비를 조정할 수 있습니다. */
+    height: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.Login h1 {
     text-align: center;
+    margin-bottom: 20px;
+}
+
+.Login input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.Login button {
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+    background-color: #a5b4fc;  /* 이거 */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.Login button:hover {
+    background-color: #2980b9;
+}
+
+.error-msg {
+    color: #e74c3c;
+    margin-bottom: 10px;
+}
+
+.signup-link {
+    text-align: center;
+}
+
+.signup-link a {
+    color: #a5b4fc;  /* 이거 */
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
 }

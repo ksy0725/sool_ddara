@@ -1,0 +1,39 @@
+.bd_mypage{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+.mypage-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    width: 600px;
+    height: 400px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.mypage-container h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.user-info {
+    display: flex;
+    justify-content: center;
+}
+
+.user-info-table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 400px;
+}
+
+.user-info-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}

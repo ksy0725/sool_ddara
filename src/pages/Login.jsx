@@ -42,7 +42,12 @@ const Login= () => {
         }
     }
 
+    const onClickButton= () =>{
+        nav("/Home");
+    }
+
     return (
+        <body className='bd_login'>
         <div className="Login">
             <h1>로그인</h1>
             <input
@@ -60,6 +65,7 @@ const Login= () => {
             <button onClick={login}>로그인</button>
             <p className="signup-link">아직 회원이 아니신가요? <a href="/Signin">회원가입</a></p>
         </div>
+        </body>
     );
 };
 

@@ -54,6 +54,7 @@ const Signin = () => {
     };
 
     return (
+        <body className="bd_signin">
         <div className="Signin">
             <h1>회원가입</h1>
             <input
@@ -71,6 +72,7 @@ const Signin = () => {
             <button onClick={onSubmit}>회원가입</button>
             <p className="signup-link">이미 회원이신가요? <Link to="/Login">로그인</Link></p>
         </div>
+        </body>
     );
 };
 

@@ -53,7 +53,6 @@ const App = () => {
         <p className="text-gray-600">
           {sool.description.length > 40 ? `${sool.description.substring(0, 40)}...` : sool.description}
         </p>
-          <p className="text-gray-600"> 추천 음식 : {`${selectedSool.food_pairing}`}</p>
       </div>
     ));
   };
@@ -75,12 +74,21 @@ const App = () => {
   return (
     <div className="container mx-auto px-4 py-8 bg-gray-100">
       <h1 className="text-4xl font-bold text-center mb-4">맛 따라, 술 따라</h1>
-      <div className="menu">
-        <Link to="/">Home</Link> 
-        <Link to="/Login">Login</Link>
-        <Link to="/Signin">Signin</Link>
-        <Link to="/Mypage">Mypage</Link>
-      </div>
+      <div className="menu flex justify-start" style={{ margin: '-10px 0 0 -10px', position: 'relative' }}>
+                <div className="img-container" style={{ marginRight: '15px' }}>
+                    <Link to="/"><img src="/home.png" alt="Home" title="Home" style={{ width: '40px', height: 'auto' }} /></Link>
+                </div>
+                <div className="img-container" style={{ marginRight: '15px' }}>
+                    <Link to="/Login"><img src="/login.png" alt="Login" title="Login" style={{ width: '40px', height: 'auto' }} /></Link>
+                </div>
+                <div className="img-container" style={{ marginRight: '15px' }}>
+                    <Link to="/Signin"><img src="/signin.png" alt="Signin" title="Signin" style={{ width: '40px', height: 'auto' }} /></Link>
+                </div>
+                <div className="img-container">
+                    <Link to="/Mypage"><img src="/mypage.png" alt="Mypage" title="Mypage" style={{ width: '40px', height: 'auto' }} /></Link>
+                </div>
+            </div>
+
       <Routes>
         <Route path='/' element={<Home
           allData={allData}
@@ -111,7 +119,6 @@ const App = () => {
             <p className="text-gray-600">
               {selectedSool.description.length > 40 ? `${selectedSool.description}` : selectedSool.description}
             </p>
-            <p className="text-gray-600"> 추천 음식 : {`${selectedSool.food_pairing}`}</p>
           </div>
         )}
       </Modal>
