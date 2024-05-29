@@ -1,8 +1,8 @@
-# 맛 따라, 술 따라
+# 🍶 맛 따라, 술 따라
 React / Firebase 기반 전통주 검색 사이트
 
 
-## 프로젝트 소개 
+## introduction
 다양한 한국의 전통주를 검색할 수 있으며, 특정 지역의 전통주를 필터링 / 그에 어울리는 음식을 추천
 <br>
 
@@ -20,7 +20,7 @@ React / Firebase 기반 전통주 검색 사이트
 - **Front** : HTML, CSS, Javascript, React
 - **Server** : Firebase
 
-## 📌 주요 기능
+## 📌 main feature
 #### 로그인 
 - 사용자의 로그인 처리
 #### 회원가입 
