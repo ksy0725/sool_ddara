@@ -40,12 +40,15 @@ React / Firebase 기반 전통주 검색 사이트
 - 전통주 검색
 
  <img width="1280" alt="search" src="https://github.com/ksy0725/sool_ddara/assets/80161351/e1728cba-48c9-43e4-bcfd-d52fba3584d6">
+
  
 - 지역 탭 활성화 -> 해당 지역 양조장에서 생산하는 주류만 필터링
   
  <img width="1275" alt="kangwon" src="https://github.com/ksy0725/sool_ddara/assets/80161351/f0d8c85b-c4ca-4f0d-8574-cc053309ee08">
+
  
 - 전통주 이미지와 주류 종류, 도수, 간단한 설명 표시
+
   
  <img width="1278" alt="main" src="https://github.com/ksy0725/sool_ddara/assets/80161351/0fdb837a-a429-4de9-bad6-dd6210a2547e">
  
