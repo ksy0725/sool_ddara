@@ -53,7 +53,6 @@ const App = () => {
         <p className="text-gray-600">
           {sool.description.length > 40 ? `${sool.description.substring(0, 40)}...` : sool.description}
         </p>
-        <p className="text-gray-600">추천 음식 : {selectedSool.food_pairing}</p>
       </div>
     ));
   };
@@ -120,6 +119,7 @@ const App = () => {
             <p className="text-gray-600">
               {selectedSool.description.length > 40 ? `${selectedSool.description}` : selectedSool.description}
             </p>
+            <p className="text-gray-600">추천 음식 : {selectedSool.food_pairing}</p>
           </div>
         )}
       </Modal>
