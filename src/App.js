@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 import Home from './pages/Home';
 import Signin from './pages/Signin';
 import Login from './pages/Login';
-import MyPage from './pages/MyPage';
+import MyPage from './pages/Mypage';
 import Error from './pages/Error';
 import './App.css';
 import './css/Modal.css';
